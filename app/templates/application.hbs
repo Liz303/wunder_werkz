@@ -1,10 +1,9 @@
 <div class="container">
-{{!-- {{#link-to "about"}} --}}
-  <div class="about-route">
-
-  {{liquid-outlet }}
-
-{{!--   {{outlet}} --}}
+  <div {{action 'transitionToContact'}} class="outer-wrapper">
+    <div {{action 'transitionToWork'}} class="wrapper">
+      <div {{action 'transitionToAbout'}} class="inner-wrapper">
+        {{liquid-outlet }}
+      </div>
+    </div>
   </div>
-{{!-- {{/link-to}} --}}
 </div>

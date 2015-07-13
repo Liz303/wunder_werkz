@@ -2,12 +2,24 @@ import { animate, stop, Promise } from "liquid-fire";
 
 export default function cardTransition(opts) {
   opts = opts || {};
-  var clickedCard = this.oldElement.find('.inner-wrapper-2'),
-      destinationCard = this.newElement.find('.inner-wrapper-2');
+  var firstStep,
+      secondStep,
+      outerWrapper = this.oldElement.parents().eq(3);
+  // var clickedCard = findClickedCard(this);
+
+  // if (clickedCard) {
+  //   firstStep = finish(clickedCard, 'slide-right');
+  // }
   stop(this.oldElement);
-  debugger;
-  return Promise.all([
-    animate(clickedCard, { background: "red" }, opts),
-    animate(destinationCard, { background: "red"} , opts)
-  ]);
+  firstStep = animate(this.oldElement, {right: "-100%", left: "100%"}, opts, 'slide-right');
+  // secondStep = animate($(outerWrapper), {left: "10px", top: "10px"}, opts)
+  return firstStep.then(() => {
+    // return secondStep.then(() => {
+      return animate(this.newElement, {opacity: [(opts.maxOpacity || 1), 0], top: ["0px", "-10px"], left: ["0px", "-10px"]}, opts);
+    // })
+  })
+  // stop(this.oldElement);
+  // return Promise.all([
+  //   animate(this.oldElement, { right: "-100%", left: "100%" }, opts)
+  // ]);
 }
