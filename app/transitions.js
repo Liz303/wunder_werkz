@@ -2,8 +2,7 @@ export default function(){
     this.transition(
       this.fromRoute('site'),
       this.toRoute('about'),
-      this.use('crossFade', { duration: 100 })
-      // this.use('toRight', {duration: 500})
+      this.use('cardTransition', { duration: 500 })
     );
 
     this.transition(

@@ -7,4 +7,4 @@ export default function crossFade(opts) {
     animate(this.oldElement, { opacity: 0 }, opts),
     animate(this.newElement, { opacity: [ (opts.maxOpacity || 1), 0 ] }, opts)
   ]);
-}
+}x
