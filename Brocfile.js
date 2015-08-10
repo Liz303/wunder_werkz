@@ -6,6 +6,7 @@ var app = new EmberApp();
 
 app.import('bower_components/jquery-ui/jquery-ui.js');
 app.import('bower_components/jquery-ui/ui/tooltip.js');
+app.import('bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js');
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
