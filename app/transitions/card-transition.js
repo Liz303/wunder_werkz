@@ -22,21 +22,28 @@ export default function fade(opts={}) {
     this.newElement.css('z-index', '0');
     this.newElement.find('#back').css('border', '3px solid white');
 
-    firstStep = animate(this.newElement, {left: ["-10px", "0px"], top: ["-10px", "0px"]}, {duration: 1000});
-    secondStep = animate(this.newElement, {opacity: [(opts.maxOpacity || 1), 0]}, outOpts, 'fade-in');
-    thirdStep = animate(this.find('.back-car'))
-    thirdStep = animate(this.oldElement.find('#front'), {left: ["100%", "10px"]}, {duration: 1000});
+    firstStep = animate(this.newElement, {left: ["-10px", "0px"], top: ["-10px", "0px"], opacity: [(opts.maxOpacity || 1), 0]}, {duration: 1000});
+    secondStep = animate(this.newElement, {opacity: [(opts.maxOpacity || 1), 0]}, {duration: 1000}, 'fade-in');
+    // thirdStep = animate(this.find('.back-card'))
+    thirdStep = animate(frontCardElement, {left: ["100%", "10px"]}, {duration: 1000});
     //secondStep = animate(this.oldElement, {opacity: 0}, outOpts, 'fade-out');
   }
 
-   return firstStep.then(() => {
+   // return firstStep.then(() => {
+   //  return secondStep.then(() => {
+   //    return thirdStep.then(() => {
+   //      return
+   //    });
+   //  });
+   // });
+
+  return firstStep.then(() => {
     return secondStep.then(() => {
       return thirdStep.then(() => {
         return
       });
     });
    });
-
   // if (this.oldElement.find('.front-card').is(':animated')) {
 
   // } else {
