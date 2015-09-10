@@ -2,7 +2,7 @@ export default function(){
   this.transition(
     this.fromRoute('site'),
     this.toRoute('about'),
-    this.use('cardTransition', { duration: 1000 })
+    this.use('cardTransition', {duration: 1000})
   );
 
   this.transition(
